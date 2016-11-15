@@ -1,0 +1,30 @@
+{
+  "name": "webpack-2-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "author": {
+    "name": "nonoroazoro",
+    "email": "xiaochao.k@gmail.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js --progress",
+    "dev": "cross-env NODE_ENV=development node ./bin/www",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress",
+    "start": "cross-env NODE_ENV=production node ./bin/www",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonoroazoro/webpack-2-boilerplate.git"
+  },
+  "homepage": "https://github.com/nonoroazoro/webpack-2-boilerplate",
+  "bugs": {
+    "url": "https://github.com/nonoroazoro/webpack-2-boilerplate/issues"
+  },
+  "keywords": [
+    "boilerplate",
+    "webpack-2"
+  ],
+  "license": "MIT"
+}
