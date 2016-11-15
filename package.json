@@ -30,7 +30,8 @@
   "devDependencies": {
     "normalize.css": "^5.0.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "webpack": "^2.1.0-beta.26"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
