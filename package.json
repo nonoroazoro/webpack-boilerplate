@@ -26,5 +26,18 @@
     "boilerplate",
     "webpack-2"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "normalize.css": "^5.0.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "helmet": "^3.1.0",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.0"
+  }
 }
