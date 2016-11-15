@@ -1,0 +1,15 @@
+{
+  "globalDevDependencies": {
+    "react": "registry:dt/react#0.14.0+20161024223416",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
+  },
+  "globalDependencies": {
+    "body-parser": "registry:dt/body-parser#0.0.0+20160619023215",
+    "compression": "registry:dt/compression#0.0.0+20160501162003",
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "helmet": "registry:dt/helmet#0.0.0+20160930124002",
+    "node": "registry:dt/node#6.0.0+20161110151007",
+    "pug": "registry:dt/pug#2.0.0-beta6+20160919072324",
+    "serve-favicon": "registry:dt/serve-favicon#0.0.0+20160316155526"
+  }
+}

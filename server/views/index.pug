@@ -1,0 +1,11 @@
+﻿extends ./templates/layout
+
+append res
+    link(href=map.demo.css, rel="stylesheet")
+    script(src=map.vendor.js)
+
+append body
+    #root
+
+append scripts
+    script(src=map.demo.js)
