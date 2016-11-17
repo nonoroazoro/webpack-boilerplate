@@ -36,7 +36,7 @@
     "babel-preset-stage-2": "^6.18.0",
     "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.25.0",
-    "eslint": "^3.10.1",
+    "eslint": "^3.10.2",
     "eslint-config-zoro": "^1.1.6",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-react": "^6.7.1",
@@ -46,8 +46,8 @@
     "less-loader": "^2.2.3",
     "mocha": "^3.1.2",
     "normalize.css": "^5.0.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
     "should": "^11.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -60,6 +60,6 @@
     "express": "^4.14.0",
     "helmet": "^3.1.0",
     "pug": "^2.0.0-beta6",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.2"
   }
 }
