@@ -1,5 +1,6 @@
 ﻿const path = require("path");
 const webpack = require("webpack");
+const AssetsPlugin = require("assets-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const srcPath = path.resolve(__dirname, "./client/demo");
@@ -75,6 +76,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
             minChunks: Infinity
+        }),
+        new AssetsPlugin({
+            filename: "assets.json",
+            path: distPath,
+            prettyPrint: true
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
