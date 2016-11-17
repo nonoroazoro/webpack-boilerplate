@@ -3,10 +3,10 @@ const config = require("./webpack.base.config");
 
 config.module.rules.push(
     {
+        enforce: "pre",
         test: /\.jsx?$/,
         use: ["eslint-loader"],
-        exclude: /node_modules/,
-        enforce: "pre"
+        exclude: /node_modules/
     },
     {
         test: /\.css$/,
