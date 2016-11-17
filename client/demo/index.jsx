@@ -2,6 +2,6 @@ import React from "react";
 import { render } from "react-dom";
 
 render(
-    <div class="demo" />,
+    <div className="demo" />,
     document.getElementById("main")
 );
