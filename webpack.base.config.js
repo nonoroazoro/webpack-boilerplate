@@ -28,18 +28,7 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: [
-                                ["es2015", { "modules": false }],
-                                "react",
-                                "stage-2"
-                            ]
-                        }
-                    }
-                ]
+                use: ["babel-loader"]
             },
             {
                 test: /\.(png|jpg)$/,
