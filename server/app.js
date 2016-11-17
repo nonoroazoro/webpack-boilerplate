@@ -5,7 +5,6 @@ const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 const compression = require("compression");
 
-const isDevMode = app.get("env") !== "production";
 const viewsPath = path.resolve(__dirname, "./views");
 const publicPath = path.resolve(__dirname, "../dist/public");
 const faviconPath = path.join(publicPath, "favicon.png");
@@ -15,6 +14,7 @@ const routes = require("./routes");
 
 // init express.
 const app = express();
+const isDevMode = app.get("env") !== "production";
 
 // view engine setup.
 app.set("views", viewsPath);
