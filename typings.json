@@ -1,7 +1,11 @@
 {
   "globalDevDependencies": {
+    "babel-core": "registry:dt/babel-core#6.7.0+20160423062108",
+    "less": "registry:dt/less#0.0.0+20160608105036",
+    "mocha": "registry:dt/mocha#2.2.5+20161028141524",
     "react": "registry:dt/react#0.14.0+20161024223416",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "should": "registry:dt/should#8.1.1+20160608082854",
     "webpack": "registry:dt/webpack#1.12.9+20161025142220"
   },
   "globalDependencies": {
