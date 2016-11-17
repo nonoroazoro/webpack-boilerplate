@@ -3,5 +3,5 @@ import { render } from "react-dom";
 
 render(
     <div className="demo" />,
-    document.getElementById("main")
+    document.getElementById("root")
 );
