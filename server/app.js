@@ -38,38 +38,36 @@ app.use(express.static(publicPath));
 
 if (isDevMode)
 {
-    app.locals.map = require(assetsPath);
-
     // development: logger & HMR setup.
-    // const { blue } = require("chalk");
-    // console.log(blue("Current Environment:", "development"));
+    const { blue } = require("chalk");
+    console.log(blue("Current Environment:", "development"));
 
-    // const logger = require("morgan");
-    // app.use(logger("dev"));
+    const logger = require("morgan");
+    app.use(logger("dev"));
 
-    // const webpack = require("webpack");
-    // const webpackDevMiddleware = require("webpack-dev-middleware");
-    // const webpackHotMiddleware = require("webpack-hot-middleware");
-    // const webpackDevConfig = require("../webpack.dev.config");
-    // const compiler = webpack(webpackDevConfig);
-    // const webpackDevMiddlewareInstance = webpackDevMiddleware(
-    //     compiler,
-    //     {
-    //         stats:
-    //         {
-    //             chunks: false,
-    //             colors: true
-    //         },
-    //         publicPath: webpackDevConfig.output.publicPath
-    //     }
-    // );
-    // webpackDevMiddlewareInstance.waitUntilValid(() =>
-    // {
-    //     // assets map setup.
-    //     app.locals.map = require(assetsPath);
-    // });
-    // app.use(webpackDevMiddlewareInstance);
-    // app.use(webpackHotMiddleware(compiler));
+    const webpack = require("webpack");
+    const webpackDevMiddleware = require("webpack-dev-middleware");
+    const webpackHotMiddleware = require("webpack-hot-middleware");
+    const webpackDevConfig = require("../webpack.dev.config");
+    const compiler = webpack(webpackDevConfig);
+    const webpackDevMiddlewareInstance = webpackDevMiddleware(
+        compiler,
+        {
+            stats:
+            {
+                chunks: false,
+                colors: true
+            },
+            publicPath: webpackDevConfig.output.publicPath
+        }
+    );
+    webpackDevMiddlewareInstance.waitUntilValid(() =>
+    {
+        // assets map setup.
+        app.locals.map = require(assetsPath);
+    });
+    app.use(webpackDevMiddlewareInstance);
+    app.use(webpackHotMiddleware(compiler));
 }
 else
 {

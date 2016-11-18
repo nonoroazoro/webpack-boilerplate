@@ -26,13 +26,15 @@ config.plugins.push(
 );
 
 // HMR.
-// config.module.loaders[0].loaders.unshift("react-hot");
-// for (const key of Object.keys(config.entry))
-// {
-//     config.entry[key].push("webpack-hot-middleware/client?reload=true");
-// }
-// config.plugins.push(
-//     new webpack.HotModuleReplacementPlugin()
-// );
+for (const key of Object.keys(config.entry))
+{
+    config.entry[key].unshift(
+        "react-hot-loader/patch",
+        "webpack-hot-middleware/client"
+    );
+}
+config.plugins.push(
+    new webpack.HotModuleReplacementPlugin()
+);
 
 module.exports = config;
