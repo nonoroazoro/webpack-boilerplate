@@ -1,7 +1,7 @@
 {
   "name": "webpack-2-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Minimal HMR example for Webpack 2 + React",
   "author": {
     "name": "nonoroazoro",
     "email": "xiaochao.k@gmail.com"
