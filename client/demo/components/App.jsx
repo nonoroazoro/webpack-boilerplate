@@ -1,20 +1,41 @@
 import "./res/App.less";
 
-import React from "react";
+import React, { PureComponent, PropTypes } from "react";
 
-let count = 0;
-
-export default (p_props) =>
+export default class App extends PureComponent
 {
-    const clickHandler = () =>
-    {
-        count++;
-        console.log(count);
+    static defaultProps = {
+        name: "World"
     };
 
-    return (
-        <div className="App" onClick={clickHandler}>
-            AAA {p_props.name}
-        </div>
-    );
-};
+    static propTypes = {
+        name: PropTypes.string
+    };
+
+    state = {
+        clicked: 0
+    };
+
+    clickHandler()
+    {
+        this.setState(Object.assign(
+            {},
+            this.state,
+            {
+                clicked: this.state.clicked + 1
+            }
+        ));
+    }
+
+    render()
+    {
+        return (
+            <div className="App">
+                <p>Hello {this.props.name}!</p>
+                <button onClick={() => this.clickHandler()}>
+                    {`Click: ${this.state.clicked}`}
+                </button>
+            </div>
+        );
+    }
+}

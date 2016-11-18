@@ -6,23 +6,20 @@ import { render } from "react-dom";
 import App from "./components/App";
 import { AppContainer } from "react-hot-loader";
 
-render(
-    <AppContainer>
-        <App name="Jack" />
-    </AppContainer>,
-    document.getElementById("root")
-);
+function renderRoot()
+{
+    render(
+        <AppContainer>
+            <App />
+        </AppContainer>,
+        document.getElementById("root")
+    );
+}
 
+renderRoot();
+
+// HMR to preserve React's state.
 if (module.hot)
 {
-    module.hot.accept("./components/App", () =>
-    {
-        const NextApp = require("./components/App");
-        render(
-            <AppContainer>
-                <NextApp name="Jack" />
-            </AppContainer>,
-            document.getElementById("root")
-        );
-    });
+    module.hot.accept("./components/App", renderRoot);
 }
