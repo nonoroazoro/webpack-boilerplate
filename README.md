@@ -86,12 +86,7 @@
 
         ```javascript
         "presets": [
-            [
-                "es2015",
-                {
-                    "modules": false // here changes
-                }
-            ],
+            [ "es2015", { "modules": false } ], // here changes
             "stage-2",
             "react"
         ],
