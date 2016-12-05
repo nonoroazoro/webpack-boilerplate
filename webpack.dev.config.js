@@ -34,7 +34,8 @@ for (const key of Object.keys(config.entry))
     );
 }
 config.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
 );
 
 module.exports = config;
