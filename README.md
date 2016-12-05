@@ -74,7 +74,7 @@
 
     2. Add `presets` to compile ES2015 and React codes:
 
-        ```javascript
+        ```json
         "presets": [
             "es2015",   // for ES2015
             "stage-2",  // for "draft" spec
@@ -84,7 +84,7 @@
 
     3. Note that because Webpack 2 has built-in support for ES2015 modules, you won't need to re-require your app root in `module.hot.accept`. To make this work, you need to opt out of Babel transpiling ES2015 modules by changing the Babel ES2015 preset to be:
 
-        ```javascript
+        ```json
         "presets": [
             [ "es2015", { "modules": false } ], // here changes
             "stage-2",
