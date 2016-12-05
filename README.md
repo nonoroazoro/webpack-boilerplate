@@ -64,7 +64,7 @@
 
 3. Create `.babelrc` file, such as `client/demo/index.jsx`.
 
-    1. Add `react-hot-loader/babel` plugin (**This will preserve state!**):
+    1. Add `react-hot-loader/babel` plugin to enable HMR for React (**Finally, this will preserve state!**):
 
         ```javascript
         "plugins": [
@@ -76,26 +76,25 @@
 
         ```javascript
         "presets": [
-            [
-                "es2015",
-                {
-                    "modules": false
-                }
-            ],
-            "stage-2",
-            "react"
+            "es2015",   // for ES2015
+            "stage-2",  // for "draft" spec
+            "react"     // for React
         ],
         ```
 
     3. Note that because Webpack 2 has built-in support for ES2015 modules, you won't need to re-require your app root in `module.hot.accept`. To make this work, you need to opt out of Babel transpiling ES2015 modules by changing the Babel ES2015 preset to be:
 
         ```javascript
-        [
-            "es2015",
-            {
-                "modules": false
-            }
-        ]
+        "presets": [
+            [
+                "es2015",
+                {
+                    "modules": false // here changes
+                }
+            ],
+            "stage-2",
+            "react"
+        ],
         ```
 
 3. Create express app, such as `server/app.js`.
