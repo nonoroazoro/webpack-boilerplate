@@ -9,16 +9,29 @@ config.module.rules.push(
     {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-            loader: "css-loader",
+            loader: "css-loader?minimize",
             fallbackLoader: "style-loader"
-        })
+        }),
+        include: /node_modules/
     },
     {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract({
-            loader: ["css-loader", "less-loader"],
+            loader: ["css-loader?minimize", "less-loader"],
             fallbackLoader: "style-loader"
-        })
+        }),
+        include: /node_modules/
+    },
+    {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+            loader: [
+                "css-loader?modules&minimize&localIdentName=[hash:base64:10]",
+                "less-loader"
+            ],
+            fallbackLoader: "style-loader"
+        }),
+        exclude: /node_modules/
     }
 );
 
