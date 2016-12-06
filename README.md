@@ -6,6 +6,7 @@
 - babel
 - react
 - react-hot-loader (v3)
+- css-modules
 - webpack (v2)
 - webpack-dev-middleware
 - webpack-hot-middleware
@@ -91,6 +92,7 @@
             "react"
         ],
         ```
+        Note that disabling Babel's module plugin is not only necessary for HMR. If you don't disable it you'll run into many other issues (see [Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) and [webpack-tree-shaking](http://www.2ality.com/2015/12/webpack-tree-shaking.html)).
 
 3. Create express app, such as `server/app.js`.
 
