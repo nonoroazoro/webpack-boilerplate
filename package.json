@@ -11,6 +11,7 @@
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js --progress",
     "dev": "cross-env NODE_ENV=development node ./bin/www",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress",
+    "prestart": "npm run build:prod",
     "start": "cross-env NODE_ENV=production node ./bin/www",
     "test": "mocha"
   },
@@ -36,6 +37,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "chalk": "^1.1.3",
+    "classnames": "^2.2.5",
     "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.26.1",
     "eslint": "^3.11.1",
