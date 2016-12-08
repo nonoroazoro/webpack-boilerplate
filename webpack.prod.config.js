@@ -36,7 +36,10 @@ config.module.rules.push(
 );
 
 config.plugins.push(
-    new ExtractTextPlugin("res/[name].[contenthash:8].css"),
+    new ExtractTextPlugin({
+        filename: "res/[name].[contenthash:8].css",
+        allChunks: true
+    }),
     new webpack.DefinePlugin({
         "process.env":
         {
