@@ -6,12 +6,13 @@ import styles from "./res/App.less";
 export default class App extends PureComponent
 {
     static defaultProps = {
+        className: "",
         name: "World"
     };
 
     static propTypes = {
-        name: PropTypes.string,
-        className: PropTypes.string
+        className: PropTypes.string,
+        name: PropTypes.string
     };
 
     state = {
