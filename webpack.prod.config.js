@@ -26,7 +26,7 @@ config.module.rules.push(
         test: /\.less$/,
         loader: ExtractTextPlugin.extract({
             loader: [
-                "css-loader?modules&minimize&localIdentName=[name]-[hash:base64:5]",
+                "css-loader?modules&minimize&localIdentName=[hash:base64:8]",
                 "less-loader"
             ],
             fallbackLoader: "style-loader"
