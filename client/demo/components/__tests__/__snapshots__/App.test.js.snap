@@ -1,0 +1,15 @@
+exports[`test App renders correctly. 1`] = `
+<div
+  className="root">
+  <p
+    className="title">
+    Hello 
+    World
+    !
+  </p>
+  <button
+    onClick={[Function]}>
+    Click: 0
+  </button>
+</div>
+`;

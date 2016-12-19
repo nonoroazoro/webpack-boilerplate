@@ -1,3 +1,6 @@
 ﻿{
-    "extends": "eslint-config-zoro"
+    "extends": "eslint-config-zoro",
+    "env": {
+        "jest": true
+    }
 }
