@@ -1,4 +1,4 @@
-# webpack-2-boilerplate
+# webpack-2-boilerplate [![Dependency Status](https://david-dm.org/nonoroazoro/webpack-2-boilerplate.svg?style=flat-square)](https://david-dm.org/nonoroazoro/webpack-2-boilerplate) [![Build Status](https://travis-ci.org/nonoroazoro/webpack-2-boilerplate.svg?branch=master)](https://travis-ci.org/nonoroazoro/webpack-2-boilerplate)
 
 
 ## Based on
