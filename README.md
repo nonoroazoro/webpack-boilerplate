@@ -12,6 +12,11 @@
 - webpack-hot-middleware
 - express
 
+## Testing
+
+- jest
+- enzyme
+
 
 ## Enabling HMR
 
