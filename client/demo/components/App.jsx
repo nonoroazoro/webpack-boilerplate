@@ -35,7 +35,7 @@ export default class App extends PureComponent
         return (
             <div className={classNames(styles.root, this.props.className)}>
                 <p className={styles.title}>Hello {this.props.name}!</p>
-                <button onClick={() => this.clickHandler()}>
+                <button onClick={(e) => this.clickHandler(e)}>
                     {`Click: ${this.state.clicked}`}
                 </button>
             </div>
