@@ -21,13 +21,10 @@ export default class App extends PureComponent
 
     clickHandler()
     {
-        this.setState(Object.assign(
-            {},
-            this.state,
-            {
-                clicked: this.state.clicked + 1
-            }
-        ));
+        this.setState({
+            ...this.state,
+            clicked: this.state.clicked + 1
+        });
     }
 
     render()
@@ -35,7 +32,7 @@ export default class App extends PureComponent
         return (
             <div className={classNames(styles.root, this.props.className)}>
                 <p className={styles.title}>Hello {this.props.name}!</p>
-                <button onClick={(e) => this.clickHandler(e)}>
+                <button onClick={() => this.clickHandler()}>
                     {`Click: ${this.state.clicked}`}
                 </button>
             </div>
