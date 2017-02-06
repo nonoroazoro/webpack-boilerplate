@@ -14,7 +14,10 @@
                 "NODE_ENV": "development"
             },
             "console": "integratedTerminal",
-            "sourceMaps": true
+            "sourceMaps": true,
+            "skipFiles": [
+                "<node_internals>/**/*.js"
+            ]
         }
     ]
 }
