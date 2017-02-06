@@ -1,7 +1,4 @@
-﻿# Editor files
-.vscode
-
-# Compiled source
+﻿# Compiled source
 *.dat
 *.dll
 *.exe
