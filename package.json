@@ -14,6 +14,7 @@
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js --progress",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress",
     "test": "jest",
+    "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
@@ -79,8 +80,8 @@
     "serve-favicon": "^2.4.0"
   },
   "jest": {
-    "testPathDirs": [
-      "<rootDir>/client"
+    "roots": [
+      "<rootDir>/client/"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
