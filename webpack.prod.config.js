@@ -8,28 +8,35 @@ config.output.chunkFilename = "[id].[chunkhash:8].chunk.js";
 config.module.rules.push(
     {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-            loader: "css-loader?minimize",
-            fallbackLoader: "style-loader"
+        use: ExtractTextPlugin.extract({
+            use: ["css-loader"],
+            fallback: "style-loader"
         }),
         include: /node_modules/
     },
     {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-            loader: ["css-loader?minimize", "less-loader"],
-            fallbackLoader: "style-loader"
+        use: ExtractTextPlugin.extract({
+            use: ["css-loader", "less-loader"],
+            fallback: "style-loader"
         }),
         include: /node_modules/
     },
     {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-            loader: [
-                "css-loader?modules&minimize&localIdentName=[hash:base64:8]",
+        use: ExtractTextPlugin.extract({
+            use: [
+                {
+                    loader: "css-loader",
+                    options:
+                    {
+                        modules: true,
+                        localIdentName: "[name]-[local]__[hash:base64:8]"
+                    }
+                },
                 "less-loader"
             ],
-            fallbackLoader: "style-loader"
+            fallback: "style-loader"
         }),
         exclude: /node_modules/
     }
