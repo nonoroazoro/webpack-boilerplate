@@ -90,7 +90,7 @@ app.use((req, res, next) =>
 // global error handler.
 app.use((err, req, res, next) =>
 {
-    const status = err.status | 500;
+    const status = err.status || 500;
     if (isDevMode)
     {
         res.status(status).send(err);
