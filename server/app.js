@@ -34,7 +34,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // static file setup.
-app.use(express.static(publicPath));
+app.use(express.static(publicPath, { maxAge: "1y" }));
+
+// router setup.
+app.use("/", routes);
 
 if (isDevMode)
 {
@@ -74,9 +77,6 @@ else
     // production: assets map setup.
     app.locals.map = require(assetsPath);
 }
-
-// router setup.
-app.use("/", routes);
 
 // catch 404 and forward to global error handler.
 app.use((req, res, next) =>

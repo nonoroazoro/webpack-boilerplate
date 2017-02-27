@@ -1,23 +1,13 @@
 {
   "name": "webpack-2-boilerplate",
-  "version": "1.0.0",
   "description": "Minimal HMR example for Webpack 2 & React",
+  "version": "1.0.0",
   "author": {
     "name": "nonoroazoro",
     "email": "xiaochao.k@gmail.com"
   },
+  "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "prestart": "npm run build:prod",
-    "start": "cross-env NODE_ENV=production node ./bin/www",
-    "dev": "cross-env NODE_ENV=development node ./bin/www",
-    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js --progress",
-    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress",
-    "test": "cross-env BABEL_ENV=test jest",
-    "test:watch": "npm test -- --watch",
-    "test:cov": "npm test -- --coverage",
-    "test:update": "npm test -- --updateSnapshot"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/nonoroazoro/webpack-2-boilerplate.git"
@@ -30,9 +20,19 @@
     "boilerplate",
     "webpack-2"
   ],
-  "license": "MIT",
   "engines": {
     "node": ">= 6"
+  },
+  "scripts": {
+    "prestart": "npm run build:prod",
+    "start": "cross-env NODE_ENV=production node ./bin/www",
+    "dev": "cross-env NODE_ENV=development node ./bin/www",
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js --progress",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress",
+    "test": "cross-env BABEL_ENV=test jest",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "npm test -- --coverage",
+    "test:update": "npm test -- --updateSnapshot"
   },
   "dependencies": {
     "body-parser": "^1.16.1",
