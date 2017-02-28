@@ -41,7 +41,7 @@
     "express": "^4.14.1",
     "helmet": "^3.4.1",
     "pug": "^2.0.0-beta6",
-    "serve-favicon": "^2.4.0"
+    "serve-favicon": "^2.4.1"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -58,7 +58,7 @@
     "enzyme": "^2.7.1",
     "enzyme-to-json": "^1.5.0",
     "eslint": "^3.16.1",
-    "eslint-config-zoro": "^1.2.8",
+    "eslint-config-zoro": "^1.2.9",
     "eslint-loader": "^1.6.3",
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.0.0",
