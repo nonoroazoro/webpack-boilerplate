@@ -8,6 +8,6 @@ const router = express.Router();
 const site = require("./site");
 
 // home page.
-router.get("/", site.home);
+router.get("*", site.home);
 
 module.exports = router;

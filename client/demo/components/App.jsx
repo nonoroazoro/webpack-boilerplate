@@ -1,9 +1,16 @@
+import styles from "./res/App.less";
+
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 
-import styles from "./res/App.less";
-
+/**
+ * App Page.
+ *
+ * @export
+ * @class App
+ * @extends {PureComponent}
+ */
 export default class App extends PureComponent
 {
     static defaultProps = {
