@@ -5,6 +5,7 @@
 
 - babel
 - react
+- react-router (v4)
 - react-hot-loader (v3)
 - css-modules
 - webpack (v2)
@@ -51,7 +52,7 @@
         {
             render(
                 <AppContainer>
-                    <App />
+                    <Root />
                 </AppContainer>,
                 document.getElementById("root")
             );
@@ -64,7 +65,7 @@
         // HMR to preserve React's state.
         if (module.hot)
         {
-            module.hot.accept("./components/App", renderRoot);
+            module.hot.accept("./components/Root", renderRoot);
         }
         ```
 
