@@ -49,7 +49,8 @@ config.plugins.push(
     }),
     new ExtractTextPlugin({
         filename: "res/[name].[contenthash:8].css",
-        allChunks: true
+        allChunks: true,
+        ignoreOrder: true
     }),
     new webpack.DefinePlugin({
         "process.env": {
