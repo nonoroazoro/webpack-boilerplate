@@ -5,6 +5,7 @@
         {
             "type": "node",
             "request": "launch",
+            "protocol": "inspector",
             "name": "Debug",
             "program": "${workspaceRoot}/bin/www",
             "cwd": "${workspaceRoot}",
