@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 if (isDevMode)
 {
     // development: logger & HMR setup.
-    const { inject } = require("./debug/index");
+    const { inject } = require("./dev/index");
     inject(app, { assetsPath });
 }
 else
