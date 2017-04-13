@@ -39,7 +39,7 @@ config.module.rules.push(
 config.plugins.push(
     new webpack.SourceMapDevToolPlugin({
         filename: "[file].map",
-        exclude: ["vendor.js"]
+        exclude: ["vendor.js", "manifest.js"]
     })
 );
 
@@ -48,7 +48,7 @@ for (const key of Object.keys(config.entry))
 {
     config.entry[key].unshift(
         "react-hot-loader/patch",
-        "webpack-hot-middleware/client?noInfo=true"
+        "webpack-hot-middleware/client?quiet=true"
     );
 }
 config.plugins.push(

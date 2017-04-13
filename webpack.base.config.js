@@ -8,6 +8,7 @@ const distPath = path.resolve(__dirname, "./dist/public/assets");
 
 module.exports = {
     context: srcPath,
+    stats: { children: false },
     entry:
     {
         vendor: ["./common/vendor"],
@@ -57,7 +58,7 @@ module.exports = {
                         options: {
                             limit: 8192,
                             mimetype: "application/font-woff",
-                            name: "res/[name].[ext]"
+                            name: "res/fonts/[name].[ext]"
                         }
                     }
                 ]
@@ -70,7 +71,7 @@ module.exports = {
                         options: {
                             limit: 8192,
                             mimetype: "application/font-woff",
-                            name: "res/[name].[ext]"
+                            name: "res/fonts/[name].[ext]"
                         }
                     }
                 ]
@@ -80,13 +81,14 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin([distPath], { verbose: false }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
+            names: ["vendor", "manifest"],
             minChunks: Infinity
         }),
         new AssetsPlugin({
             filename: "assets.json",
             path: distPath,
-            prettyPrint: true
+            prettyPrint: true,
+            includeManifest: "manifest"
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
