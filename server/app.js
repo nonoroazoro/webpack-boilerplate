@@ -5,12 +5,12 @@ const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 const compression = require("compression");
 
+const routes = require("./routes");
+
 const viewsPath = path.resolve(__dirname, "./views");
 const faviconPath = path.join(viewsPath, "./res/img/favicon.png");
 const publicPath = path.resolve(__dirname, "../dist/public");
 const assetsPath = path.join(publicPath, "assets", "assets.json");
-
-const routes = require("./routes");
 
 // init express.
 const app = express();
