@@ -22,4 +22,4 @@ Thumbs.db
 node_modules
 
 # Project specific stuff
-dist/public/assets
+dist
