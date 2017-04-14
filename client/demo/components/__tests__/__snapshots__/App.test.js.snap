@@ -4,18 +4,21 @@ exports[`App renders correctly when className is set. 1`] = `
 <div
   className="root home"
 >
-  <p
-    className="title"
+  <div
+    className="center"
   >
-    Hello 
-    World
-    !
-  </p>
-  <button
-    onClick={[Function]}
-  >
-    Click: 0
-  </button>
+    <h3
+      className="title"
+    >
+      Hello 
+      World
+    </h3>
+    <button
+      onClick={[Function]}
+    >
+      Click: 0
+    </button>
+  </div>
 </div>
 `;
 
@@ -23,17 +26,20 @@ exports[`App renders correctly. 1`] = `
 <div
   className="root"
 >
-  <p
-    className="title"
+  <div
+    className="center"
   >
-    Hello 
-    World
-    !
-  </p>
-  <button
-    onClick={[Function]}
-  >
-    Click: 0
-  </button>
+    <h3
+      className="title"
+    >
+      Hello 
+      World
+    </h3>
+    <button
+      onClick={[Function]}
+    >
+      Click: 0
+    </button>
+  </div>
 </div>
 `;
