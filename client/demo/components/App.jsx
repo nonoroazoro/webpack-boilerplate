@@ -1,4 +1,4 @@
-import styles from "./index.less";
+import styles from "./res/App.less";
 
 import classNames from "classnames";
 import PropTypes from "prop-types";
@@ -39,11 +39,13 @@ export default class App extends PureComponent
     {
         return (
             <div className={classNames(styles.root, this.props.className)}>
-                <p className={styles.title}>Hello {this.props.name}!</p>
-                <button onClick={() => this.clickHandler()}>
-                    {`Click: ${this.state.clicked}`}
-                </button>
-            </div>
+                <div className={styles.center}>
+                    <h3 className={styles.title}>Hello {this.props.name}</h3>
+                    <button onClick={() => this.clickHandler()}>
+                        {`Click: ${this.state.clicked}`}
+                    </button>
+                </div>
+            </div >
         );
     }
 }

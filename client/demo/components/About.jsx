@@ -1,4 +1,4 @@
-import styles from "./index.less";
+import styles from "./res/About.less";
 
 import React from "react";
 
@@ -10,8 +10,8 @@ import React from "react";
 const About = () =>
 {
     return (
-        <div>
-            <h2 className={styles.title}>For the horde!</h2>
+        <div className={styles.circle}>
+            <h3 className={styles.title}>For the Horde!</h3>
         </div>
     );
 };
