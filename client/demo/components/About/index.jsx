@@ -1,4 +1,4 @@
-import styles from "./res/About.less";
+import styles from "./index.less";
 
 import React from "react";
 

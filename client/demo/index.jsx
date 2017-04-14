@@ -4,7 +4,7 @@ import { AppContainer } from "react-hot-loader";
 
 import Root from "./components/Root";
 
-import "./res/index.less";
+import "./index.less";
 
 function renderRoot()
 {

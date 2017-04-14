@@ -1,4 +1,4 @@
-import styles from "./res/App.less";
+import styles from "./index.less";
 
 import classNames from "classnames";
 import PropTypes from "prop-types";

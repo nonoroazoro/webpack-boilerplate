@@ -1,10 +1,10 @@
-import styles from "./res/Root.less";
+import styles from "./index.less";
 
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink as Link } from "react-router-dom";
 
-import App from "./App";
-import About from "./About";
+import App from "../App";
+import About from "../About";
 
 /**
  * Root (layout).
