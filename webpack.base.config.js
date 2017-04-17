@@ -88,28 +88,23 @@ module.exports = {
     plugins:
     [
         new CleanWebpackPlugin([distPath], { verbose: false }),
-        new webpack.optimize.CommonsChunkPlugin(
-            {
-                names: ["vendor", "manifest"],
-                minChunks: Infinity
-            }
-        ),
-        new AssetsPlugin(
-            {
-                filename: "assets.json",
-                path: distPath,
-                prettyPrint: true,
-                includeManifest: "manifest"
-            }
-        ),
-        new webpack.ProvidePlugin(
-            {
-                $: "jquery",
-                jQuery: "jquery"
-            }
-        )
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ["vendor", "manifest"],
+            minChunks: Infinity
+        }),
+        new AssetsPlugin({
+            filename: "assets.json",
+            path: distPath,
+            prettyPrint: true,
+            includeManifest: "manifest"
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ],
-    stats: {
+    stats:
+    {
         children: false,
         maxModules: 0
     }

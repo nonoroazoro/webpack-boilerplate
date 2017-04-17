@@ -52,23 +52,17 @@ config.module.rules.push(
 
 config.plugins.push(
     new webpack.LoaderOptionsPlugin({ minimize: true }),
-    new ExtractTextPlugin(
-        {
-            filename: "res/[name].[contenthash:8].css",
-            allChunks: true,
-            ignoreOrder: true
-        }
-    ),
-    new webpack.DefinePlugin(
-        {
-            "process.env": { NODE_ENV: JSON.stringify("production") }
-        }
-    ),
-    new webpack.optimize.UglifyJsPlugin(
-        {
-            compress: { warnings: false }
-        }
-    )
+    new ExtractTextPlugin({
+        filename: "res/[name].[contenthash:8].css",
+        allChunks: true,
+        ignoreOrder: true
+    }),
+    new webpack.DefinePlugin({
+        "process.env": { NODE_ENV: JSON.stringify("production") }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+        compress: { warnings: false }
+    })
 );
 
 module.exports = config;
