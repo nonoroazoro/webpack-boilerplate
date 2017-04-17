@@ -9,22 +9,18 @@ config.output.chunkFilename = "[id].[chunkhash:8].chunk.js";
 config.module.rules.push(
     {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract(
-            {
-                use: ["css-loader"],
-                fallback: "style-loader"
-            }
-        ),
+        use: ExtractTextPlugin.extract({
+            use: ["css-loader"],
+            fallback: "style-loader"
+        }),
         include: /node_modules/
     },
     {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract(
-            {
-                use: ["css-loader", "less-loader"],
-                fallback: "style-loader"
-            }
-        ),
+        use: ExtractTextPlugin.extract({
+            use: ["css-loader", "less-loader"],
+            fallback: "style-loader"
+        }),
         include: /node_modules/
     },
     {

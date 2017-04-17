@@ -39,12 +39,10 @@ config.module.rules.push(
 );
 
 config.plugins.push(
-    new webpack.SourceMapDevToolPlugin(
-        {
-            filename: "[file].map",
-            exclude: ["vendor.js", "manifest.js"]
-        }
-    )
+    new webpack.SourceMapDevToolPlugin({
+        filename: "[file].map",
+        exclude: ["vendor.js", "manifest.js"]
+    })
 );
 
 // HMR.
