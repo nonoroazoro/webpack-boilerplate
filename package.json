@@ -24,6 +24,7 @@
     "node": ">= 6"
   },
   "scripts": {
+    "precommit": "lint-staged",
     "prestart": "npm run build:prod",
     "start": "cross-env NODE_ENV=production node ./bin/www",
     "dev": "cross-env NODE_ENV=development node ./bin/www",
@@ -63,12 +64,15 @@
     "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.2",
+    "husky": "^0.13.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
+    "lint-staged": "^3.6.0",
     "morgan": "^1.8.2",
     "normalize.css": "^7.0.0",
+    "prettier": "^1.4.2",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
@@ -93,5 +97,15 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     }
+  },
+  "lint-staged": {
+    "na/**/*.js": [
+      "prettier --tab-width 4 --trailing-comma none --write",
+      "git add"
+    ],
+    "na/**/*.jsx": [
+      "prettier --tab-width 4 --trailing-comma none --write",
+      "git add"
+    ]
   }
 }
