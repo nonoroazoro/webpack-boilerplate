@@ -101,10 +101,12 @@
   "lint-staged": {
     "na/**/*.js": [
       "prettier --tab-width 4 --trailing-comma none --write",
+      "eslint",
       "git add"
     ],
     "na/**/*.jsx": [
       "prettier --tab-width 4 --trailing-comma none --write",
+      "eslint",
       "git add"
     ]
   }
