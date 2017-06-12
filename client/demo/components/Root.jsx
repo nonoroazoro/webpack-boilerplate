@@ -1,7 +1,7 @@
 import styles from "./res/Root.less";
 
 import React from "react";
-import { BrowserRouter as Router, Route, NavLink as Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, NavLink as Link } from "react-router-dom";
 
 import App from "./App";
 import About from "./About";
@@ -21,10 +21,10 @@ const Root = () =>
                     <li><Link exact to="/about" activeClassName={styles.active}>About</Link></li>
                 </ul>
 
-                <hr />
-
-                <Route exact path="/" component={App} />
-                <Route exact path="/about" component={About} />
+                <Switch>
+                    <Route exact path="/" component={App} />
+                    <Route path="/about" component={About} />
+                </Switch>
             </div>
         </Router>
     );
