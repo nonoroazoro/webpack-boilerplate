@@ -45,7 +45,7 @@ export default class App extends PureComponent
                         {`Click: ${this.state.clicked}`}
                     </button>
                 </div>
-            </div >
+            </div>
         );
     }
 }
