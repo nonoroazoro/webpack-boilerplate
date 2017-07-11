@@ -1,4 +1,4 @@
-﻿const webpack = require("webpack");
+const webpack = require("webpack");
 const config = require("./webpack.base.config");
 
 config.module.rules.push(
@@ -41,7 +41,7 @@ config.module.rules.push(
 config.plugins.push(
     new webpack.SourceMapDevToolPlugin({
         filename: "[file].map",
-        exclude: ["vendor.js", "manifest.js"]
+        exclude: ["vendor.js"]
     })
 );
 
