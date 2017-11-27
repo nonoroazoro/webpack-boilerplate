@@ -8,7 +8,7 @@
 - react-router (v4)
 - react-hot-loader (v3)
 - css-modules
-- webpack (v2)
+- webpack (v3)
 - webpack-dev-middleware
 - webpack-hot-middleware
 - express
