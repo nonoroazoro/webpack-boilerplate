@@ -12,8 +12,7 @@ config.module.rules.push(
         use: ExtractTextPlugin.extract({
             use: ["css-loader"],
             fallback: "style-loader"
-        }),
-        include: /node_modules/
+        })
     },
     {
         test: /\.less$/,
