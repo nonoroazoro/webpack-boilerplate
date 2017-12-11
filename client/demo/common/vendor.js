@@ -4,6 +4,8 @@
 
 import "normalize.css";
 
+import "babel-polyfill";
+
 import "prop-types";
 
 import "react";
