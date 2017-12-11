@@ -1,7 +1,7 @@
 ﻿const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const config = require("./webpack.base.config");
+const config = require("./webpack.config.base");
 
 config.output.filename = "[name].[chunkhash:8].js";
 config.output.chunkFilename = "[id].[chunkhash:8].chunk.js";

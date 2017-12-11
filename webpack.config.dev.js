@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const config = require("./webpack.base.config");
+const config = require("./webpack.config.base");
 
 config.module.rules.push(
     {

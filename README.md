@@ -13,6 +13,7 @@
 - webpack-hot-middleware
 - express
 
+
 ## Testing
 
 - jest
@@ -21,7 +22,7 @@
 
 ## Enabling HMR
 
-1. Create Webpack config for **development**, such as `webpack.dev.config.js`.
+1. Create a webpack config for **development**, such as `webpack.config.dev.js`.
 
     1. Add `react-hot-loader/patch` and `webpack-hot-middleware/client` to `entry` as **the first two** entry points:
 
@@ -43,7 +44,7 @@
         );
         ```
 
-1. Create Webpack entry file, such as `client/demo/index.jsx`.
+1. Create the webpack entry file, such as `client/demo/index.jsx`.
 
     1. Use `react-hot-loader`'s `AppContainer` to replace the root component:
 
@@ -108,7 +109,7 @@
         const webpack = require("webpack");
         const webpackDevMiddleware = require("webpack-dev-middleware");
         const webpackHotMiddleware = require("webpack-hot-middleware");
-        const webpackDevConfig = require("../webpack.dev.config");
+        const webpackDevConfig = require("../webpack.config.dev");
         const compiler = webpack(webpackDevConfig);
         const webpackDevMiddlewareInstance = webpackDevMiddleware(
             compiler,

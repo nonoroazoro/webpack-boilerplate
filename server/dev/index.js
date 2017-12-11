@@ -3,7 +3,7 @@ const logger = require("morgan");
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
-const devConfig = require("../../webpack.dev.config");
+const devConfig = require("../../webpack.config.dev");
 
 /**
  * inject debug settings to express app.
