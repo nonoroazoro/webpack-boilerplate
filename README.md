@@ -125,3 +125,7 @@
         app.use(webpackDevMiddlewareInstance);
         app.use(webpackHotMiddleware(compiler));
         ```
+
+## Unsolved issue
+
+- Due to an [issue](https://github.com/gaearon/react-hot-loader/issues/391) of react-hot-loader, `this` isn't correctly bound while using arrow functions as class properties.
