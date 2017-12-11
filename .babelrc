@@ -1,9 +1,16 @@
 {
     "presets": [
         [
-            "es2015",
+            "env",
             {
-                "modules": false
+                "targets": {
+                    "browsers": [
+                        "last 2 versions",
+                        "safari >= 7"
+                    ]
+                },
+                "modules": false,
+                "useBuiltIns": true
             }
         ],
         "stage-2",
@@ -15,9 +22,10 @@
     "env": {
         // Jest requires CommonJS modules, thus you have to configure Babel to transpile
         // ES modules to CommonJS modules in the test environment.
+        // See https://facebook.github.io/jest/docs/en/webpack.html#using-with-webpack-2.
         "test": {
             "presets": [
-                "es2015",
+                "env",
                 "stage-2",
                 "react"
             ]
