@@ -7,6 +7,14 @@
             "name": "Debug in Chrome",
             "url": "http://localhost:8888",
             "webRoot": "${workspaceRoot}/client/demo/"
+        },
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "url": "http://localhost:8888",
+            "webRoot": "${workspaceRoot}/client/demo/"
         }
     ]
 }
