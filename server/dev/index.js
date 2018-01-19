@@ -3,6 +3,7 @@ const logger = require("morgan");
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
+
 const devConfig = require("../../webpack.config.dev");
 
 /**
@@ -10,7 +11,7 @@ const devConfig = require("../../webpack.config.dev");
  */
 module.exports.inject = (app, options = {}) =>
 {
-    console.log(blue("Current Environment: development"));
+    console.log(blue("Current environment: development\n"));
 
     // set logger.
     app.use(logger("dev"));
@@ -21,10 +22,10 @@ module.exports.inject = (app, options = {}) =>
         compiler,
         {
             stats:
-            {
-                chunks: false,
-                colors: true
-            },
+                {
+                    chunks: false,
+                    colors: true
+                },
             publicPath: devConfig.output.publicPath
         }
     );
