@@ -1,4 +1,4 @@
-# webpack-3-boilerplate [![Dependency Status](https://david-dm.org/nonoroazoro/webpack-3-boilerplate.svg?style=flat-square)](https://david-dm.org/nonoroazoro/webpack-3-boilerplate) [![Build Status](https://travis-ci.org/nonoroazoro/webpack-3-boilerplate.svg?branch=master)](https://travis-ci.org/nonoroazoro/webpack-3-boilerplate)
+# webpack-boilerplate [![Dependency Status](https://david-dm.org/nonoroazoro/webpack-boilerplate.svg?style=flat-square)](https://david-dm.org/nonoroazoro/webpack-boilerplate) [![Build Status](https://travis-ci.org/nonoroazoro/webpack-boilerplate.svg?branch=master)](https://travis-ci.org/nonoroazoro/webpack-boilerplate)
 
 
 ## Based on
@@ -6,9 +6,9 @@
 - babel
 - react
 - react-router (v4)
-- react-hot-loader (v3)
+- react-hot-loader (v4)
 - css-modules
-- webpack (v3)
+- webpack (v4)
 - webpack-dev-middleware
 - webpack-hot-middleware
 - express
@@ -22,7 +22,7 @@
 
 ## Enabling HMR
 
-1. Create a webpack config for **development**, such as `webpack.config.dev.js`.
+1. Create a webpack config for **development**, such as `scripts/webpack/webpack.config.dev.js`.
 
     1. Add `react-hot-loader/patch` and `webpack-hot-middleware/client` to `entry` as **the first two** entry points:
 
@@ -44,7 +44,7 @@
         );
         ```
 
-1. Create the webpack entry file, such as `client/demo/index.jsx`.
+1. Create the webpack entry file, such as `src/demo/index.jsx`.
 
     1. Use `react-hot-loader`'s `AppContainer` to replace the root component:
 
@@ -70,7 +70,7 @@
         }
         ```
 
-1. Create `.babelrc` file, such as `client/demo/index.jsx`.
+1. Create `.babelrc` file, such as `src/demo/index.jsx`.
 
     1. Add `react-hot-loader/babel` plugin to enable HMR for React (**Finally, this will preserve state!**):
 
@@ -101,7 +101,7 @@
         ```
         Note that disabling Babel's module plugin is not only necessary for HMR. If you don't disable it you'll run into many other issues (see [Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) and [webpack-tree-shaking](http://www.2ality.com/2015/12/webpack-tree-shaking.html)).
 
-1. Create express app, such as `server/app.js`.
+1. Create express app, such as `lib/app.js`.
 
     1. Add `webpack-dev-middleware` and `webpack-hot-middleware` to enable HMR of server rendering:
 
@@ -109,7 +109,7 @@
         const webpack = require("webpack");
         const webpackDevMiddleware = require("webpack-dev-middleware");
         const webpackHotMiddleware = require("webpack-hot-middleware");
-        const webpackDevConfig = require("../webpack.config.dev");
+        const webpackDevConfig = require("../../scripts/webpack/webpack.config.dev");
         const compiler = webpack(webpackDevConfig);
         const webpackDevMiddlewareInstance = webpackDevMiddleware(
             compiler,

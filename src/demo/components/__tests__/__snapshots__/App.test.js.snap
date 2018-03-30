@@ -15,6 +15,7 @@ exports[`App renders correctly when className is set. 1`] = `
     </h3>
     <button
       onClick={[Function]}
+      type="button"
     >
       Click: 0
     </button>
@@ -37,6 +38,7 @@ exports[`App renders correctly. 1`] = `
     </h3>
     <button
       onClick={[Function]}
+      type="button"
     >
       Click: 0
     </button>

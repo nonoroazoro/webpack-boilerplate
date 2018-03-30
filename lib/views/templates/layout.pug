@@ -7,10 +7,12 @@ html
         meta(name="format-detection" content="email=no")
         meta(name="format-detection" content="telephone=no")
         meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no")
-        title webpack-3-boilerplate
-        link(href=map.vendor.css, rel="stylesheet")
+        title webpack-boilerplate
+        if map.vendor.css
+            link(href=map.vendor.css, rel="stylesheet")
         block links
-        script(src=map.vendor.js)
+        if map.vendor.js
+            script(src=map.vendor.js)
     body
         block content
         block scripts

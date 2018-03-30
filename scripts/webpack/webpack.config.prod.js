@@ -1,10 +1,11 @@
-﻿const webpack = require("webpack");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+﻿const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const config = require("./webpack.config.base");
 
+config.mode = "production";
+
 config.output.filename = "[name].[chunkhash:8].js";
-config.output.chunkFilename = "[id].[chunkhash:8].chunk.js";
+config.output.chunkFilename = "[name].[chunkhash:8].chunk.js";
 
 config.module.rules.push(
     {
@@ -26,12 +27,10 @@ config.module.rules.push(
         test: /\.less$/,
         use: ExtractTextPlugin.extract(
             {
-                use:
-                [
+                use: [
                     {
                         loader: "css-loader",
-                        options:
-                        {
+                        options: {
                             modules: true,
                             localIdentName: "[name]-[local]__[hash:base64:8]"
                         }
@@ -46,17 +45,10 @@ config.module.rules.push(
 );
 
 config.plugins.push(
-    new webpack.LoaderOptionsPlugin({ minimize: true }),
     new ExtractTextPlugin({
-        filename: "res/[name].[contenthash:8].css",
+        filename: "res/[name].[chunkhash:8].css",
         allChunks: true,
         ignoreOrder: true
-    }),
-    new webpack.DefinePlugin({
-        "process.env": { NODE_ENV: JSON.stringify("production") }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false }
     })
 );
 

@@ -1,37 +1,41 @@
 const path = require("path");
-const webpack = require("webpack");
 const AssetsPlugin = require("assets-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 
-const srcPath = path.resolve(__dirname, "./client/demo");
-const distPath = path.resolve(__dirname, "./dist/public/assets");
+const ROOT_PATH = path.resolve(__dirname, "../../");
+const SRC_PATH = path.resolve(ROOT_PATH, "./src/demo");
+const BUILD_PATH = path.join(ROOT_PATH, "./dist/public/assets");
 
 module.exports = {
-    context: srcPath,
-    entry:
-    {
+    context: SRC_PATH,
+    entry: {
         vendor: ["./common/vendor"],
         demo: ["./index"]
     },
-    output:
-    {
-        path: distPath,
+    devtool: "source-map",
+    output: {
+        path: BUILD_PATH,
         publicPath: "/assets/",
         filename: "[name].js",
         chunkFilename: "[id].chunk.js"
     },
-    resolve:
-    {
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    name: "vendor",
+                    chunks: "all"
+                }
+            }
+        }
+    },
+    resolve: {
         extensions: [".js", ".jsx"]
     },
-    module:
-    {
-        rules:
-        [
+    module: {
+        rules: [
             {
                 test: /\.jsx?$/,
-                use:
-                [
+                use: [
                     {
                         loader: "babel-loader",
                         options: { cacheDirectory: true }
@@ -41,12 +45,10 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg)$/,
-                use:
-                [
+                use: [
                     {
                         loader: "url-loader",
-                        options:
-                        {
+                        options: {
                             limit: 8192,
                             name: "res/[name].[ext]"
                         }
@@ -55,12 +57,10 @@ module.exports = {
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                use:
-                [
+                use: [
                     {
                         loader: "url-loader",
-                        options:
-                        {
+                        options: {
                             limit: 8192,
                             mimetype: "application/font-woff",
                             name: "res/fonts/[name].[ext]"
@@ -71,39 +71,27 @@ module.exports = {
             {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use:
-                [
-                    {
-                        loader: "file-loader",
-                        options:
+                    [
                         {
-                            limit: 8192,
-                            mimetype: "application/font-woff",
-                            name: "res/fonts/[name].[ext]"
+                            loader: "file-loader",
+                            options: {
+                                limit: 8192,
+                                mimetype: "application/font-woff",
+                                name: "res/fonts/[name].[ext]"
+                            }
                         }
-                    }
-                ]
+                    ]
             }
         ]
     },
-    plugins:
-    [
-        new CleanWebpackPlugin([distPath], { verbose: false }),
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ["vendor"],
-            minChunks: Infinity
-        }),
+    plugins: [
         new AssetsPlugin({
             filename: "assets.json",
-            path: distPath
-        }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
+            path: BUILD_PATH
         })
     ],
-    stats:
-    {
+    stats: {
         children: false,
-        maxModules: 0
+        modules: false
     }
 };

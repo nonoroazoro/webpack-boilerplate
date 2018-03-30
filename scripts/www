@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const { green, red } = require("chalk");
+
+const server = require("../index");
+const port = process.env.PORT || 8888;
+
+server.listen(port, "0.0.0.0", (err) =>
+{
+    console.log(
+        err ? red(`Unable to start the dev server: ${err.message}`)
+            : green(`Dev server is started on ${port}`)
+    );
+});

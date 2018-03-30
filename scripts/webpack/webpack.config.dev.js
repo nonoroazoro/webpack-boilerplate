@@ -1,6 +1,8 @@
 const webpack = require("webpack");
 const config = require("./webpack.config.base");
 
+config.mode = "development";
+
 config.module.rules.push(
     {
         enforce: "pre",
@@ -19,13 +21,11 @@ config.module.rules.push(
     },
     {
         test: /\.less$/,
-        use:
-        [
+        use: [
             "style-loader",
             {
                 loader: "css-loader",
-                options:
-                {
+                options: {
                     modules: true,
                     sourceMap: true,
                     localIdentName: "[name]-[local]"
@@ -37,14 +37,7 @@ config.module.rules.push(
     }
 );
 
-config.plugins.push(
-    new webpack.SourceMapDevToolPlugin({
-        filename: "[file].map",
-        exclude: ["vendor.js"]
-    })
-);
-
-// HMR.
+// Hot module replacement.
 for (const key of Object.keys(config.entry))
 {
     config.entry[key].unshift(

@@ -1,0 +1,12 @@
+﻿extends ./templates/layout
+
+append links
+    if map.demo.css
+        link(href=map.demo.css, rel="stylesheet")
+
+append content
+    #root
+
+append scripts
+    if map.demo.js
+        script(src=map.demo.js)

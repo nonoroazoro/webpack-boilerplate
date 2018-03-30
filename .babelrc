@@ -20,12 +20,30 @@
         "react-hot-loader/babel"
     ],
     "env": {
-        // Jest requires CommonJS modules, thus you have to configure Babel to transpile
-        // ES modules to CommonJS modules in the test environment.
-        // See https://facebook.github.io/jest/docs/en/webpack.html#using-with-webpack-2.
+        "production": {
+            "plugins": [
+                [
+                    "transform-react-remove-prop-types",
+                    {
+                        "removeImport": true
+                    }
+                ]
+            ]
+        },
         "test": {
             "presets": [
-                "env",
+                [
+                    "env",
+                    {
+                        "targets": {
+                            "browsers": [
+                                "last 2 versions",
+                                "safari >= 7"
+                            ]
+                        },
+                        "useBuiltIns": true
+                    }
+                ],
                 "stage-2",
                 "react"
             ]

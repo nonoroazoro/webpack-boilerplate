@@ -1,5 +1,5 @@
 module.exports = {
-    roots: ["<rootDir>/client/"],
+    roots: ["<rootDir>/src/"],
     setupFiles: ["./jest.setup.js"],
     snapshotSerializers: ["enzyme-to-json/serializer"],
     moduleNameMapper: {
