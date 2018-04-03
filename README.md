@@ -63,7 +63,7 @@
     1. Add `module.hot` hook to auto re-render your root component (**This will not preserve state yet!**):
 
         ```javascript
-        // HMR to preserve React's state.
+        // Add hook to auto re-render the root component.
         if (module.hot)
         {
             module.hot.accept("./components/Root", renderRoot);

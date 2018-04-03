@@ -18,7 +18,7 @@ function renderRoot()
 
 renderRoot();
 
-// HMR to preserve React's state.
+// Add hook to auto re-render the root component.
 if (module.hot)
 {
     module.hot.accept("./components/Root", renderRoot);
