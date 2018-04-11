@@ -16,12 +16,12 @@ module.exports = {
         path: BUILD_PATH,
         publicPath: "/assets/",
         filename: "[name].js",
-        chunkFilename: "[id].chunk.js"
+        chunkFilename: "[name].chunk.js"
     },
     optimization: {
         splitChunks: {
             cacheGroups: {
-                vendor: {
+                vendors: {
                     name: "vendor",
                     chunks: "all",
                     test: /[\\/]node_modules[\\/]/
