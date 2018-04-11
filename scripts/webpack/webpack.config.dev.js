@@ -37,13 +37,10 @@ config.module.rules.push(
     }
 );
 
-// Hot module replacement.
+// Hot module replacement, see https://github.com/gaearon/react-hot-loader#getting-started
 for (const key of Object.keys(config.entry))
 {
-    config.entry[key].unshift(
-        "react-hot-loader/patch",
-        "webpack-hot-middleware/client?quiet=true"
-    );
+    config.entry[key].unshift("webpack-hot-middleware/client?quiet=true");
 }
 config.plugins.push(
     new webpack.HotModuleReplacementPlugin()
