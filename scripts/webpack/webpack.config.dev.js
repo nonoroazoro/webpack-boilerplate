@@ -42,8 +42,6 @@ for (const key of Object.keys(config.entry))
 {
     config.entry[key].unshift("webpack-hot-middleware/client?quiet=true");
 }
-config.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
-);
+config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 module.exports = config;
