@@ -20,59 +20,41 @@
 - enzyme
 
 
-## Enabling HMR
+## Steps to Enable HMR with State Preserved
 
-1. Create a webpack config for **development**, such as `scripts/webpack/webpack.config.dev.js`.
+1. Create a webpack config file for **development**, such as `scripts/webpack/webpack.config.dev.js`.
 
-    1. Add `react-hot-loader/patch` and `webpack-hot-middleware/client` to `entry` as **the first two** entry points:
+    1. Add `webpack-hot-middleware/client` to each `entry` as **the first** entry point:
 
         ```javascript
         for (const key of Object.keys(config.entry))
         {
-            config.entry[key].unshift(
-                "react-hot-loader/patch",
-                "webpack-hot-middleware/client"
-            );
+            config.entry[key].unshift("webpack-hot-middleware/client");
         }
         ```
+
+        Note that the `react-hot-loader/patch` is no longer required, [see here](https://github.com/gaearon/react-hot-loader#no-patch-required).
 
     1. ​Add `HotModuleReplacementPlugin` to `plugins`:
 
         ```javascript
-        config.plugins.push(
-            new webpack.HotModuleReplacementPlugin()
-        );
+        config.plugins.push(new webpack.HotModuleReplacementPlugin());
         ```
 
-1. Create the webpack entry file, such as `src/demo/index.jsx`.
+1. Setup `react-hot-loader` in your root component, such as `src/demo/components/Root.jsx` (**This will not preserve state yet!**):
 
-    1. Use `react-hot-loader`'s `AppContainer` to replace the root component:
+    ```javascript
+    // Add hook to auto re-render the root component.
+    export default hot(module)(Root);
+    ```
 
-        ```javascript
-        function renderRoot()
-        {
-            render(
-                <AppContainer>
-                    <Root />
-                </AppContainer>,
-                document.getElementById("root")
-            );
-        }
-        ```
+    Note that the `AppContainer` is no longer recommended, instead we use the new `hot` api now, [see here](https://github.com/gaearon/react-hot-loader#appcontainer-vs-hot).
 
-    1. Add `module.hot` hook to auto re-render your root component (**This will not preserve state yet!**):
+    Therefore, don't forget to remove the `AppContainer` in your webpack entry file, such as `src/demo/index.jsx`.
 
-        ```javascript
-        // Add hook to auto re-render the root component.
-        if (module.hot)
-        {
-            module.hot.accept("./components/Root", renderRoot);
-        }
-        ```
+1. Create a babel config file, such as `.babelrc`.
 
-1. Create `.babelrc` file, such as `src/demo/index.jsx`.
-
-    1. Add `react-hot-loader/babel` plugin to enable HMR for React (**Finally, this will preserve state!**):
+    1. Add `react-hot-loader/babel` plugin to properly propagate the hot updates (**Finally, this will preserve state!**):
 
         ```javascript
         "plugins": [
@@ -84,24 +66,25 @@
 
         ```javascript
         "presets": [
-            "es2015",   // for ES2015
-            "stage-2",  // for "draft" spec
-            "react"     // for React
-        ],
-        ```
-
-    1. Note that because Webpack 2 has built-in support for ES2015 modules, you won't need to re-require your app root in `module.hot.accept`. To make this work, you need to opt out of Babel transpiling ES2015 modules by changing the Babel ES2015 preset to be:
-
-        ```javascript
-        "presets": [
-            [ "es2015", { "modules": false } ], // here changes
+            [
+                "env",
+                {
+                    "targets": {
+                        "browsers": [
+                            "last 2 versions",
+                            "safari >= 7"
+                        ]
+                    },
+                    "modules": false,
+                    "useBuiltIns": true
+                }
+            ],
             "stage-2",
             "react"
-        ],
+        ]
         ```
-        Note that disabling Babel's module plugin is not only necessary for HMR. If you don't disable it you'll run into many other issues (see [Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) and [webpack-tree-shaking](http://www.2ality.com/2015/12/webpack-tree-shaking.html)).
 
-1. Create express app, such as `lib/app.js`.
+1. Create an [Express](https://expressjs.com/) app as our dev server, such as `lib/app.js` (or you can use [webpack-dev-server](https://github.com/webpack/webpack-dev-server) instead of `Express`).
 
     1. Add `webpack-dev-middleware` and `webpack-hot-middleware` to enable HMR of server rendering:
 
@@ -109,23 +92,28 @@
         const webpack = require("webpack");
         const webpackDevMiddleware = require("webpack-dev-middleware");
         const webpackHotMiddleware = require("webpack-hot-middleware");
-        const webpackDevConfig = require("../../scripts/webpack/webpack.config.dev");
-        const compiler = webpack(webpackDevConfig);
-        const webpackDevMiddlewareInstance = webpackDevMiddleware(
+
+        const devConfig = require("../../scripts/webpack/webpack.config.dev");
+
+        const compiler = webpack(devConfig);
+        const devMiddleware = webpackDevMiddleware(
             compiler,
             {
                 stats:
-                {
-                    chunks: false,
-                    colors: true
-                },
-                publicPath: webpackDevConfig.output.publicPath
+                    {
+                        children: false,
+                        colors: true,
+                        modules: false
+                    },
+                publicPath: devConfig.output.publicPath
             }
         );
-        app.use(webpackDevMiddlewareInstance);
+
+        app.use(devMiddleware);
         app.use(webpackHotMiddleware(compiler));
         ```
 
+
 ## Unsolved issue
 
-- Due to an [issue](https://github.com/gaearon/react-hot-loader/issues/391) of react-hot-loader, `this` isn't correctly bound while using arrow functions as class properties.
+- Due to an [issue](https://github.com/gaearon/react-hot-loader/issues/391) of react-hot-loader, `this` isn't correctly bound while using `arrow functions` as class properties.
