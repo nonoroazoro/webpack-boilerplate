@@ -1,10 +1,11 @@
-import styles from "./res/Root.less";
-
 import React from "react";
+import { hot } from "react-hot-loader";
 import { BrowserRouter as Router, Route, Switch, NavLink as Link } from "react-router-dom";
 
 import App from "./App";
 import About from "./About";
+
+import styles from "./res/Root.less";
 
 /**
  * Root (layout).
@@ -30,4 +31,5 @@ const Root = () =>
     );
 };
 
-export default Root;
+// Add hook to auto re-render the root component.
+export default hot(module)(Root);
